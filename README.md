@@ -1,6 +1,6 @@
 # spring-boot-github-actions-demo
 
-Pequeño ejemplo de aplicación Spring Boot + Maven con un workflow de GitHub Actions.
+Ejemplo de aplicación Spring Boot + Maven + JaCoCo + GitHub Actions.
 
 ## Requisitos
 
@@ -15,6 +15,17 @@ mvn spring-boot:run
 
 Luego abre: http://localhost:8080/hello
 
+## Tests y cobertura
+
+```bash
+mvn clean test
+```
+
+El reporte de JaCoCo se genera en: `target/site/jacoco/index.html`.
+
 ## GitHub Actions
 
-El workflow se encuentra en `.github/workflows/ci-maven.yml` y se ejecuta en cada `push` y `pull_request` a la rama `main`.
+Workflows:
+
+- `.github/workflows/ci-maven.yml`: build/test básico.
+- `.github/workflows/ci-coverage.yml`: build/test + reporte de cobertura como artifact.
